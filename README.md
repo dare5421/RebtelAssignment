@@ -47,6 +47,6 @@ A gRPC application consists of three important components:
 
 # Screenshots <a name="screenshots"/>
 ![screenshot1](./Screenshots/1.PNG)
-![screenshot1](./Screenshots/2.png)
-![screenshot1](./Screenshots/3.png)
-![screenshot1](./Screenshots/4.png)
+![screenshot1](./Screenshots/2.PNG)
+![screenshot1](./Screenshots/3.PNG)
+![screenshot1](./Screenshots/4.PNG)
