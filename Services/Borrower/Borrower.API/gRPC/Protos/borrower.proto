@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "Borrower.API.gRPC.Protos";
+
+service BorrowerService{
+
+	rpc GetBorrowersByIds (GetBorrowersByIdsRequest) returns (GetBorrowersByIdsResponse);
+
+}
+
+message GetBorrowersByIdsRequest{
+    repeated int32 borrower_ids =1;
+}
+
+message GetBorrowersByIdsResponse{
+	repeated GetBorrowersByIdsResponseItem borrowers =1;
+}
+
+message GetBorrowersByIdsResponseItem{
+	int32 id = 1;
+    string name = 2;
+    string tel = 3;
+    string birth_date = 4;
+    string address = 5;
+    string education = 6;
+    string registration_date = 7;
+}
+        

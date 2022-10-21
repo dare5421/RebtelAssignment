@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+option csharp_namespace = "Library.API.gRPC.Protos";
+service LibraryService{
+
+	rpc GetMostBorrowedBooks (Empty) returns (GetMostBorrowedBooksResponse);
+	rpc GetAvailableCopiesById(GetAvailableCopiesByIdRequest) returns (GetAvailableCopiesByIdResponse);
+	rpc GetBookReadRate(GetBookReadRateRequest) returns (GetBookReadRateResponse);
+	rpc GetBookBorrowsInTimeFrame(GetBookBorrowsInTimeFrameRequest) returns (GetBookBorrowsInTimeFrameResponse);
+	rpc GetBorrowedBookByUser(GetBorrowedBookByUserRequest) returns (GetBorrowedBookByUserResponse);
+	rpc GetOtherBooks(GetOtherBooksRequest) returns (GetOtherBooksResponse);
+
+}
+
+message Empty{}
+message GetMostBorrowedBooksResponse{
+	repeated GetMostBorrowedBooksResponseItem books =1;
+}
+message GetMostBorrowedBooksResponseItem{
+	int32 id = 1;
+	string author =2;
+	string name =3;
+	string publisher = 4;
+	int32 pages =5;
+	int32 edition = 6;
+	int32 published_year=7;
+	string description = 8;
+	int32 total_copies = 9;
+	int32 borrowed_copies = 10;
+}
+
+message GetAvailableCopiesByIdRequest {
+	int32 book_id = 1;
+}
+message GetAvailableCopiesByIdResponse{
+	int32 number_of_available_copies = 1;
+	int32 number_of_borrowed_copies =2;
+}
+
+message GetBookReadRateRequest{
+	int32 book_id = 1;
+}
+message GetBookReadRateResponse{
+	double read_rate = 1;
+}
+
+message GetBookBorrowsInTimeFrameRequest{
+	string start_frame = 1;
+	string end_frame =2;
+}
+message GetBookBorrowsInTimeFrameResponse{
+	repeated GetBookBorrowsInTimeFrameItem book_borrow = 1;
+}
+message GetBookBorrowsInTimeFrameItem{
+	int32 book_id = 1;
+	int32 borrower_id = 2;
+	string borrow_date = 3;
+	string retrive_date = 4;
+}
+
+message GetBorrowedBookByUserRequest{
+	int32 borrower_id = 1;
+}
+message GetBorrowedBookByUserResponse{
+	repeated GetBorrowedBookByUserItem borrowed_books = 1;
+}
+message GetBorrowedBookByUserItem{
+	int32 book_id = 1;
+	int32 borrower_id = 2;
+	string borrow_date = 3;
+	string retrive_date = 4;
+	GetBorrowedBookByUserBook book = 5;
+}
+message GetBorrowedBookByUserBook{
+	int32 id = 1;
+	string author =2;
+	string name =3;
+	string publisher = 4;
+	int32 pages =5;
+	int32 edition = 6;
+	int32 published_year=7;
+	string description = 8;
+	int32 total_copies = 9;
+	int32 borrowed_copies = 10;
+}
+
+message GetOtherBooksRequest{
+	int32 book_id =1;
+}
+message GetOtherBooksResponse{
+	repeated GetOtherBooksItem books =1;
+}
+message GetOtherBooksItem{
+	int32 book_id = 1;
+	int32 borrower_id = 2;
+	string borrow_date = 3;
+	string retrive_date = 4;
+	GetOtherBooksBook book = 5;
+}
+message GetOtherBooksBook{
+	int32 id = 1;
+	string author =2;
+	string name =3;
+	string publisher = 4;
+	int32 pages =5;
+	int32 edition = 6;
+	int32 published_year=7;
+	string description = 8;
+	int32 total_copies = 9;
+	int32 borrowed_copies = 10;
+
+}
