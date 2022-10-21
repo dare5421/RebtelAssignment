@@ -46,7 +46,7 @@ A gRPC application consists of three important components:
 * Client: the client application consumes RPC services exposed by the server. 
 
 # Screenshots <a name="screenshots"/>
-![screenshot1](./Screenshots/1.png)
+![screenshot1](/Screenshots/1.png)
 ![screenshot1](./Screenshots/2.png)
 ![screenshot1](./Screenshots/3.png)
 ![screenshot1](./Screenshots/4.png)
